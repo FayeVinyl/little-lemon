@@ -1,17 +1,16 @@
 import React from 'react';
-import logo20 from '../images/Asset 20@4x.png';
+import logo20 from '../images/Asset 9@4x.png';
 
 function Footer () {
 
     return (
-        <>
+        <footer>
         <section id="footerLogo">
-            <img src={logo20} alt="Little Lemon Logo" />
+            <img src={logo20} height={200} alt="Little Lemon Logo" />
         </section>
 
-        <section id="navigation">
-            <section>
-                <h1>Doormat Navigation</h1>
+            <section className="doormatNav">
+                <h3>Doormat Navigation</h3>
                 <ul>
                     <li>Home</li>
                     <li>About</li>
@@ -21,24 +20,25 @@ function Footer () {
                     <li>Login</li>
                 </ul>
             </section>
-            <section>
-                <h1>Contact</h1>
+            
+            <section className="contactNav">
+                <h3>Contact</h3>
                 <ul>
                     <li>Address</li>
                     <li>Phone Number</li>
                     <li>Email</li>
                 </ul>
             </section>
-            <section>
-                <h1>Social Media</h1>
+            
+            <section className="socialNav">
+                <h3>Social Media</h3>
                 <ul>
                     <li>Facebook</li>
                     <li>Twitter</li>
                     <li>Instagram</li>
                 </ul>
             </section>
-        </section>
-        </>
+        </footer>
 
     )
 

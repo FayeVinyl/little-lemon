@@ -4,7 +4,9 @@ import logo from '../images/Asset 16@4x.png';
 function Header () {
 
     return (
-        <img src={logo} alt="Little Lemon Logo" />
+        <header className="container">
+            <img src={logo}  width={200} height={53} alt="Little Lemon Logo"/>
+        </header>
     )
 
 }
