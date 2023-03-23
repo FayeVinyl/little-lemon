@@ -1,11 +1,12 @@
-import react from 'react';
+import React from 'react';
+import './menu.css';
 
 function Menu () {
 
     return (
-        <>
-            Menu
-        </>
+        <section className="menu">
+            <h1>Coming Soon</h1>
+        </section>
     )
 
 }

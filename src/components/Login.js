@@ -1,13 +1,10 @@
-import react from 'react';
+import React from 'react'
+import './login.css';
 
-function Login () {
-
-    return (
-        <>
-            Login
-        </>
-    )
-
+const Login = () => {
+  return (
+    <section className="login">Login</section>
+  )
 }
 
-export default Login;
+export default Login

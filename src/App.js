@@ -1,31 +1,23 @@
 import './App.css';
+import { Footer, Header, Main } from './containers';
 import { Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Main from './components/Main';
-import Footer from './components/Footer';
-import About from './components/About';
-import Menu from './components/Menu';
-import OrderOnline from './components/OrderOnline';
-import Reservations from './components/Reservations';
-import Login from './components/Login';
-
-
+import { About, Login, Menu, OrderOnline, BookingPage } from './components';
 
 
 function App() {
   return (
-    <div className="app">
-      <Navbar />
+    <>
+      <Header />
       <Routes>
-        <Route path="/" element= { <Main /> } />
-        <Route path="/about" element= { <About /> }  />
-        <Route path="/menu" element= { <Menu /> }  />
-        <Route path="/reservations" element= { <Reservations /> }  />
-        <Route path="/order-online" element= { <OrderOnline /> }  />
-        <Route path="/login" element= { <Login /> }  />
-      </Routes>
+          <Route path="/" element= { <Main /> } />
+          <Route path="/about" element= { <About /> }  />
+          <Route path="/menu" element= { <Menu /> }  />
+          <Route path="/booking-page" element= { <BookingPage /> }  />
+          <Route path="/order-online" element= { <OrderOnline /> }  />
+          <Route path="/login" element= { <Login /> }  />
+        </Routes>
       <Footer />
-    </div>
+    </>
   );
 }
 
