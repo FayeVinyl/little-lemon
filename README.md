@@ -1,5 +1,4 @@
-
-![Screenshot](little lemon homepage.png)
+![little lemon homepage](https://user-images.githubusercontent.com/19337086/227145536-835c8b63-94dc-466b-b99f-eefb5573617e.png)
 
 # Getting Started with Create React App
 
