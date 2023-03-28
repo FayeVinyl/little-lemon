@@ -1,4 +1,6 @@
 .reservations {
+    display: flex;
+    justify-content: space-around;
     background-color: #EDEFEE;
     min-height: 100vh;
-}
+    }

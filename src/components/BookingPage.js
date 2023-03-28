@@ -1,11 +1,12 @@
 import React from 'react';
 import './bookingpage.css';
+import BookingForm from './BookingForm.js';
 
 function BookingPage () {
 
     return (
         <section className="reservations">
-            Reservations
+            <BookingForm />
         </section>
     )
 
