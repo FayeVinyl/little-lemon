@@ -1,60 +1,226 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import "./booking.css";
 
-import './bookingform.css';
 
-const BookingForm = () => {
+const BookingForm = (props) => {
 
-    const [formData, setFormData ] =useState({
-        date: "",
-        time: "",
-        guests: "",
-        occasion: "",
-    })
+  const [date, setDate] = useState("");
+  const [guests, setGuests] = useState(1);
+  const [occasion, setOccasion] = useState("");
+  const [seating, setSeating] = useState("false");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [telephone, setTelephone] = useState("");
+  const [email, setEmail] = useState("");
+  const [specialReq, setSpecialReq] = useState("");
+
+  const [finalTime, setFinalTime] = useState(
+    props.availableTimes.map((times) => <option>{times}</option>)
+  );
+
+  function handleDateChange(e) {
+    setDate(e.target.value);
+
+    var stringify = e.target.value;
+    const date = new Date(stringify);
+
+    props.updateTimes(date);
+
+    setFinalTime(props.availableTimes.map((times) => <option>{times}</option>));
+  }
+
+
+
+  const validateEmail = (email) => {
+    return String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+  };
+
+const getIsFormValid = () => {
+  return (
+    date &&
+    finalTime &&
+    firstName &&
+    lastName &&
+    telephone &&
+    validateEmail(email)
+  );
+};
+
+const clearForm = () => {
+  setDate("");
+  setFinalTime("");
+  setGuests("");
+  setOccasion("");
+  setSeating("");
+  setFirstName("");
+  setLastName("");
+  setTelephone("");
+  setEmail("");
+  setSpecialReq("");
+};
+
+const handleSubmit =(e) => {
+  e.preventDefault();
+  clearForm();
+}
 
   return (
-    <form style={{ display: "grid", maxWidth: 400, gap: 20 }}>
+    <div className="booking-form">
+      <form onSubmit={handleSubmit}>
 
-  <label htmlFor="res-date">Choose date</label>
-  <input type="date" id="res-date" />
+        <fieldset>
+          <h2>Find a table</h2>
 
-  <label htmlFor="res-time">Choose time</label>
-  <select id="res-time ">
-    <option>17:00</option>
-    <option>18:00</option>
-    <option>19:00</option>
-    <option>20:00</option>
-    <option>21:00</option>
-    <option>22:00</option>
-  </select>
+          <div className="Field">
+            <label htmlFor="res-date">Choose date <sup>*</sup></label>
+            <input
+              type="date"
+              id="res-date"
+              required
+              value={date}
+              onChange={handleDateChange}
+              />
+          </div>
 
-  <label htmlFor="guests">Number of guests</label>
-  <input type="number" placeholder={1} min={1} max={10} id="guests" />
+          <div className="Field">
+            <label htmlFor="res-time">Choose time <sup>*</sup></label>
+            <select 
+              id="res-time"
+              required
+              >
+                {finalTime}
+            </select>
+          </div>
 
-  <label htmlFor="occasion">Occasion</label>
-  <select id="occasion">
-    <option>Birthday</option>
-    <option>Anniversary</option>
-    <option>Engagement</option>
-  </select>
+          <div className="Field">
+            <label htmlFor="guests">Number of guests <sup>*</sup></label>
+            <input
+              type="number"
+              placeholder="select"
+              min={1}
+              max={10}
+              id="guests"
+              name="guests"
+              required
+              value={guests}
+              onChange={(e) => setGuests(e.target.value)}
+            />
+          </div>
 
-  <button type="submit" defaultValue="Make Your reservation">Make Your Reservation</button>
-</form>
+          <div className="Field">
+            <label htmlFor="occasion">Occasion</label>
+            <select
+              id="occasion"
+              name="occasion"
+              value={occasion}
+              onChange={(e) => setOccasion(e.target.value)}
+            >
+              <option>Birthday</option>
+              <option>Anniversary</option>
+              <option>Engagement</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div className="Field">
+            <label htmlFor="seating">Seating Options</label>
+            <select
+              id="seating"
+              name="seating"
+              value={seating}
+              onChange={(e) => setSeating(e.target.value)}
+              >
+                <option>Standard</option>
+                <option>Outdoors</option>
+                <option>Bar</option>
+              </select>
+          </div>
+
+          <div className="Field">
+              <label htmlFor="firstName">First Name: <sup>*</sup></label>
+              <input
+                type="text"
+                placeholder="First Name"
+                id="firstName"
+                name="firstName"
+                required
+                minLength={1}
+                maxLength={50}
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                />
+              </div>
+
+            <div className="Field">
+              <label htmlFor="lastName">Last Name: <sup>*</sup></label>
+               <input
+                 type="text"
+                 placeholder="Last Name"
+                 id="lastName"
+                 name="lastName"
+                 required
+                 minLength={1}
+                 maxLength={50}
+                 value={lastName}
+                 onChange={(e) => setLastName(e.target.value)}
+                 />
+            </div>
+
+            <div className="Field">
+              <label htmlFor="telephone">Phone Number: <sup>*</sup></label>
+              <input
+                type="tel"
+                id="telephone"
+                required
+                placeholder="(xxx)xxx-xxxx"
+                value={telephone}
+                onChange={(e) => setTelephone(e.target.value)}
+                />
+            </div>
+
+            <div className="Field">
+              <label htmlFor="email">Email: <sup>*</sup></label>
+              <input
+                type="email"
+                id="email"
+                placeholder="name@email.com"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                />
+            </div>
+
+            <div className="Field">
+              <label htmlFor="specialReq">Special Requests:</label>
+              <textarea
+                type="textarea"
+                id="specialReq"
+                placeholder='additional comments or requests'
+                name="specialReq"
+                rows={4}
+                value={specialReq}
+                onChange={(e) => setSpecialReq(e.target.value)}
+                />
+            </div>
+          <Link className="confirm-booking" to="/confirmation">
+          <button
+            type="submit"
+            disabled={!getIsFormValid}
+            defaultValue="Make Your reservation">
+              Make Your Reservation
+          </button>
+          </Link>
+
+        </fieldset>
+      </form>
+    </div>
 
   )
 }
 
 export default BookingForm
-
-
-/*Using what you already know about events, effects and state in React, update your form's code to keep track of its own state.
-
-    Define a state variable for field in the form.
-
-    Connect each state variable to the form fields using the value and onChange form element attributes.
-
-    The options in the booking time field should be displayed from a list of available times. For now, create a stateful array in the component named availableTimes and use this state variable to populate the time select field options.
-
-Tip: Use the useState function to declare the variable.
-
-Now that the state is connected to the input elements, the form is ready to communicate with an API, a task you may complete in future.
-*/

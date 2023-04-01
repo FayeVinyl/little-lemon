@@ -1,7 +1,7 @@
 import './App.css';
 import { Footer, Header, Main } from './containers';
 import { Routes, Route } from "react-router-dom";
-import { About, Login, Menu, OrderOnline, BookingPage } from './components';
+import { About, Login, Menu, OrderOnline, BookingPage, ConfirmBooking } from './components';
 
 
 function App() {
@@ -15,6 +15,7 @@ function App() {
           <Route path="/booking-page" element= { <BookingPage /> }  />
           <Route path="/order-online" element= { <OrderOnline /> }  />
           <Route path="/login" element= { <Login /> }  />
+          <Route path="/confirmation" element= { <ConfirmBooking /> }  />
         </Routes>
       <Footer />
     </>

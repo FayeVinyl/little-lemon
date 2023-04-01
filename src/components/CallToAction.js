@@ -1,5 +1,6 @@
 import React from 'react'
 import waiter from '../images/waiter.jpg'
+import { NavLink } from 'react-router-dom';
 import './calltoaction.css'
 
 const CallToAction = () => {
@@ -11,8 +12,10 @@ const CallToAction = () => {
         <h2>Chicago</h2>
         <p>We are  family owned Mediterranean restaurant focused on traditional recipes served with a moden twist</p>
         </span>
+        <NavLink to='/booking-page' className='nav-item'>
+          <button className="reserve-button">Reserve a table</button>
+        </NavLink>
 
-        <button className="reserve-button">Reserve a table</button>
       </div>
 
 
