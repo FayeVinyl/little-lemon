@@ -9,7 +9,6 @@ export const seededRandom = function (seed) {
 
 export const fetchAPI = function (date) {
   let result = [];
-  let dt =new Date(date); /*remove?*/
   let random = seededRandom(date);
 
   for (let i = 17; i <= 23; i++) {

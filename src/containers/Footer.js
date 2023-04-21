@@ -36,9 +36,9 @@ function Footer () {
             <section className="footer-links">
                 <h3>Social Media</h3>
                 <ul>
-                    <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
-                    <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
-                    <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+                    <li><a href="https://facebook.com" target="_blank" rel="noreferrer">Facebook</a></li>
+                    <li><a href="https://twitter.com" target="_blank" rel="noreferrer">Twitter</a></li>
+                    <li><a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a></li>
                 </ul>
             </section>
             </div>

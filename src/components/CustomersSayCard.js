@@ -3,7 +3,6 @@ import user1 from '../images/user1.jpg'
 import user2 from '../images/user2.jpg'
 import user3 from '../images/user3.jpg'
 import user4 from '../images/user4.jpg'
-import star from '../images/star.png'
 
 const CustomersSayCard = () => {
     const users = [
