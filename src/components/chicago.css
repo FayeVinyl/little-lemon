@@ -10,7 +10,7 @@
     float: right;
     flex-direction: column;
     justify-content: space-around;
-    padding: 5em 1em;
+    padding: 6em 1em;
 }
 
 .backstory-photos {
@@ -28,14 +28,14 @@
 
 .image-stack-bottom {
     position: absolute;
-    top: 0;
+    top: 1;
     left: 0;
 }
 
 .image-stack-top {
     position: relative;
-    top: -3.5rem;
-    left: 15rem;
+    top: -3rem;
+    left: 8rem;
     z-index: 1;
 }
 

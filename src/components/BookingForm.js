@@ -81,6 +81,7 @@ const handleSubmit =(e) => {
             <input
               type="date"
               id="res-date"
+              name="date"
               required
               value={date}
               onChange={handleDateChange}
@@ -91,6 +92,7 @@ const handleSubmit =(e) => {
             <label htmlFor="res-time">Choose time <sup>*</sup></label>
             <select 
               id="res-time"
+              name="time"
               required
               >
                 {finalTime}
@@ -147,7 +149,7 @@ const handleSubmit =(e) => {
                 type="text"
                 placeholder="First Name"
                 id="firstName"
-                name="firstName"
+                name="first-name"
                 required
                 minLength={1}
                 maxLength={50}
@@ -162,7 +164,7 @@ const handleSubmit =(e) => {
                  type="text"
                  placeholder="Last Name"
                  id="lastName"
-                 name="lastName"
+                 name="last-name"
                  required
                  minLength={1}
                  maxLength={50}
@@ -176,6 +178,7 @@ const handleSubmit =(e) => {
               <input
                 type="tel"
                 id="telephone"
+                name="phone"
                 required
                 placeholder="(xxx)xxx-xxxx"
                 value={telephone}
@@ -188,6 +191,7 @@ const handleSubmit =(e) => {
               <input
                 type="email"
                 id="email"
+                name="email"
                 placeholder="name@email.com"
                 required
                 value={email}
@@ -201,7 +205,7 @@ const handleSubmit =(e) => {
                 type="textarea"
                 id="specialReq"
                 placeholder='additional comments or requests'
-                name="specialReq"
+                name="special-req"
                 rows={4}
                 value={specialReq}
                 onChange={(e) => setSpecialReq(e.target.value)}

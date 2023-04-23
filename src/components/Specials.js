@@ -1,7 +1,7 @@
 import React from 'react'
 import salad from '../images/salad.jpg'
 import bruschetta from '../images/bruschetta.jpg'
-import lemon from '../images/lemon.jpeg'
+import lemon from '../images/lemon.jpg'
 import bike from '../images/bike.png'
 import './specials.css'
 
